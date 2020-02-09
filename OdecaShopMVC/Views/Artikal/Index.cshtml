@@ -1,0 +1,59 @@
+﻿@using OdecaShopMVC.Models
+@using OdecaShopMVC.ViewModels
+
+@model ArtikliTkaViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Create", "Artikal", FormMethod.Post))
+{
+    Html.RenderPartial("~/Views/Shared/_ArtikalForma.cshtml", Model.Tkavm);
+}
+
+<table class="table table-bordered">
+
+    @{ Html.RenderPartial("~/Views/Shared/_ArtikalTableHead.cshtml", "Muška kolekcija"); }
+
+    @foreach (var item in Model.Artikli)
+    {
+        if (item.Tip.Id == 1)
+        {
+            Html.RenderPartial("~/Views/Shared/_ArtikalTableRow.cshtml", item);
+        }
+    }
+
+</table>
+
+<table class="table table-bordered">
+
+    @{ Html.RenderPartial("~/Views/Shared/_ArtikalTableHead.cshtml", "Ženska kolekcija"); }
+
+    @foreach (var item in Model.Artikli)
+    {
+        if (item.Tip.Id == 2)
+        {
+            Html.RenderPartial("~/Views/Shared/_ArtikalTableRow.cshtml", item);
+        }
+    }
+
+</table>
+
+<table class="table table-bordered">
+    
+    @{ Html.RenderPartial("~/Views/Shared/_ArtikalTableHead.cshtml", "Dečija kolekcija"); }
+
+    @foreach (var item in Model.Artikli)
+    {
+        if (item.Tip.Id == 3)
+        {
+            Html.RenderPartial("~/Views/Shared/_ArtikalTableRow.cshtml", item);
+        }
+    }
+
+</table>
+
+@Html.ActionLink("Prikaži artikle na akciji", "AkcijaFilter")

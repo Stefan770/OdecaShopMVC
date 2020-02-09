@@ -1,0 +1,52 @@
+﻿@model IEnumerable<OdecaShopMVC.Models.Artikal>
+
+<h2>Na akciji</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayName("Tip")
+        </th>
+        <th>
+            @Html.DisplayName("Kategorija")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Opis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marka)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cena)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tip.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kategorija.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marka)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cena)
+        </td>
+    </tr>
+}
+
+</table>
+
+@Html.ActionLink("Nazad", "Index")

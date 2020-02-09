@@ -1,0 +1,26 @@
+﻿@model OdecaShopMVC.Models.Artikal
+
+<tr>
+    <td class="col-lg-1">
+        @Html.DisplayFor(modelModel => Model.Kategorija.Naziv)
+    </td>
+    <td>
+        @Html.DisplayFor(modelModel => Model.Naziv) -
+        @Html.DisplayFor(modelModel => Model.Opis)
+    </td>
+
+    <td class="col-lg-1">
+        @Html.DisplayFor(modelModel => Model.Cena)
+    </td>
+
+    <td class="col-lg-1">
+        @Html.ActionLink("Izmeni", "Edit", new { id = Model.Id })
+    </td>
+    <td class="col-lg-1">
+        @using (Html.BeginForm("Delete", "Artikal", FormMethod.Post))
+        {
+            @Html.Hidden("id", Model.Id);
+            <input type="submit" value="Obriši" class="btn btn-link" style="margin:0; padding:0" />
+        }
+    </td>
+</tr>
